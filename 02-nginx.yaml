@@ -12,3 +12,16 @@
      name: nginx
      state: started
      enabled: yes
+  - name: Check if Nginx is installed
+    package_facts:
+    manager: "auto"
+
+- name: Nginx installation status
+  debug:
+    msg: "Nginx is installed."
+    when: "'nginx' in ansible_facts.packages"
+
+- name: Nginx installation status
+  debug:
+    msg: "Nginx is NOT installed."
+    when: "'nginx' not in ansible_facts.packages"
