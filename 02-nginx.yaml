@@ -12,15 +12,12 @@
      name: nginx
      state: started
      enabled: yes
-  - name: Check if Nginx is installed
-    hosts: frontend
-    gather_facts: no
-    tasks:
 
-    - name: Collect package facts
-      ansible.builtin.package_facts:
 
-    - name: Check if nginx is installed
-      debug:
-      msg: "Nginx is installed"
-      when: "'nginx' in ansible_facts.packages"
+  - name: Collect package facts
+    ansible.builtin.package_facts:
+
+  - name: Check if nginx is installed
+    debug:
+    msg: "Nginx is installed"
+    when: "'nginx' in ansible_facts.packages"
