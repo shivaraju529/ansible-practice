@@ -13,15 +13,14 @@
      state: started
      enabled: yes
   - name: Check if Nginx is installed
-    package_facts:
-    manager: "auto"
+    hosts: frontend
+    gather_facts: no
+    tasks:
 
-- name: Nginx installation status
-  debug:
-    msg: "Nginx is installed."
-    when: "'nginx' in ansible_facts.packages"
+    - name: Collect package facts
+      ansible.builtin.package_facts:
 
-- name: Nginx installation status
-  debug:
-    msg: "Nginx is NOT installed."
-    when: "'nginx' not in ansible_facts.packages"
+    - name: Check if nginx is installed
+      debug:
+      msg: "Nginx is installed"
+      when: "'nginx' in ansible_facts.packages"
