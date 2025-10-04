@@ -1,6 +1,6 @@
 ---
 - name: ping the server
-  hosts: node 
+  hosts: web
   #list of tasks/collections/modules
   tasks:
   - name: ping
