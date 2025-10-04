@@ -14,7 +14,7 @@
      enabled: yes
      
   - name: Check nginx service status
-      ansible.builtin.service_facts:
+    ansible.builtin.service_facts:
 
   - name: Show nginx status
     ansible.builtin.debug:
