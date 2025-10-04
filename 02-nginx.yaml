@@ -14,10 +14,11 @@
      enabled: yes
   - name: check nginx installed or not
     ansible.builtin.package_facts:
+       msg: "✅ Nginx is installed!"
+       when: "'nginx' in ansible_facts.packages"
   # - name: Report if Nginx is installed
-    ansible.builtin.debug:
-      msg: "✅ Nginx is installed!"
-      when: "'nginx' in ansible_facts.packages"
+    #ansible.builtin.debug:
+     
   - name: Report if Nginx is NOT installed
     ansible.builtin.debug:
         msg: "❌ Nginx is NOT installed!"
