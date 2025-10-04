@@ -7,6 +7,6 @@
     trainer: Siva
 
   tasks:
-  - name : print the variables
+  - name: print the variables
     ansible.builtin.debug:
-     msg:"course name is : {{course}}, timings: {{time}}, trainer: {{siva}}" 
+     msg: "course name is: {{ course }}, timings: {{ time }}, trainer: {{trainer}}" 
