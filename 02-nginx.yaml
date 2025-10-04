@@ -15,7 +15,7 @@
   - name: check nginx installed or not
     ansible.builtin.package_facts:
   # - name: Report if Nginx is installed
-  #   ansible.builtin.debug:
+    ansible.builtin.debug:
       msg: "✅ Nginx is installed!"
       when: "'nginx' in ansible_facts.packages"
   - name: Report if Nginx is NOT installed
