@@ -26,13 +26,7 @@
       msg: "❌ Nginx is NOT installed"
     when: "'nginx' not in ansible_facts.packages"
      
-  # - name: Check nginx service status
-  #   ansible.builtin.service_facts:
 
-  # - name: Show nginx status
-  #   ansible.builtin.debug:
-  #     msg: "✅ Nginx is running and installed."
-  #   when: "'nginx' in ansible_facts.services and ansible_facts.services['nginx'].state == 'running'"
 
   # - name: check nginx installed or not
   #   ansible.builtin.package_facts:
