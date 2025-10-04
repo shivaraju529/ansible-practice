@@ -12,14 +12,27 @@
      name: nginx
      state: started
      enabled: yes
-     
-  - name: Check nginx service status
-    ansible.builtin.service_facts:
+    
+  - name: Gather installed packages
+    ansible.builtin.package_facts:
 
-  - name: Show nginx status
+  - name: Nginx is installed
     ansible.builtin.debug:
-      msg: "✅ Nginx is running and installed."
-    when: "'nginx' in ansible_facts.services and ansible_facts.services['nginx'].state == 'running'"
+      msg: "✅ Nginx is installed"
+    when: "'nginx' in ansible_facts.packages"
+
+  - name: Nginx is NOT installed
+    ansible.builtin.debug:
+      msg: "❌ Nginx is NOT installed"
+    when: "'nginx' not in ansible_facts.packages"
+     
+  # - name: Check nginx service status
+  #   ansible.builtin.service_facts:
+
+  # - name: Show nginx status
+  #   ansible.builtin.debug:
+  #     msg: "✅ Nginx is running and installed."
+  #   when: "'nginx' in ansible_facts.services and ansible_facts.services['nginx'].state == 'running'"
 
   # - name: check nginx installed or not
   #   ansible.builtin.package_facts:
