@@ -7,4 +7,4 @@
   - name : condiion checking 
     ansible.builtin.debug:
      msg: "given number is less than {{numbers}} than 10"
-     when: numbers<10
+     when: numbers < 10
