@@ -3,6 +3,11 @@
   connection: local
   vars:
    technologies: Devops, Linux, Ansible, shell
+   #map to list
+   tags:
+     Application: payment
+     enviornment: dev
+
   tasks:
   - name: default variable
     ansible.builtin.debug:
@@ -11,3 +16,7 @@
   - name: convert string to list
     ansible.builtin.debug:
       msg: "technologies are: {{ technologies | split(',') }}"
+  
+  - name: convert map to list
+    ansible.builtin.debug:
+      msg: "tags: {{ tags | dict2items }}"
