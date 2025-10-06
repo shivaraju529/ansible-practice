@@ -51,3 +51,21 @@
   - name: check IP is valid or not
     ansible.builtin.debug: 
       msg: "Ip address is correct :{{ ipaddress | ansible.utils.ipv4 }}"
+
+  - name: grep for root
+    ansible.builtin.command: cat/et/passwd | grep root
+    ansible.builtin.shell: cat/et/passwd | grep root
+    register: command_output
+  
+  - name: print the command_output
+    ansible.builtin.debug:
+      msg: "{{command_output}}"
+
+  - name: redirect the output
+    ansible.builtin.command: ls -ltr > /tmp/siva.txt
+    register: redirect_output
+    ignore_errors: true
+
+  - name: print redirect_output
+    ansible.builtin.debug:
+      msg: "{{ redirect_output }}"
