@@ -13,14 +13,14 @@
     ansible.builtin.debug:
       msg: "{{user_output}}"
 
-  - name: Remove the user 'johnd'
-    ansible.builtin.user:
-     name: siva
-     state: absent
-     remove: yes
+  # - name: Remove the user 'johnd'
+  #   ansible.builtin.user:
+  #    name: siva
+  #    state: absent
+  #    remove: yes
 
-  # - name: create user
-  #   ansible.builtin.command: useradd siva
-  #   when: user_output.rc != 0
+  - name: create user
+    ansible.builtin.command: useradd siva
+    when: user_output.rc != 0
 
  
