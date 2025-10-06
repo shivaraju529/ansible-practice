@@ -3,6 +3,7 @@
   connection: local
   vars:
    technologies: Devops, Linux, Ansible, shell
+   name:  "Sivaraju"
    #map to list
    tags:
      Application: payment
@@ -37,3 +38,11 @@
   - name : convert yaml into json
     ansible.builtin.debug:
       msg: "json is : {{ course_yaml | to_json  }}"
+  
+  - name : save json to file
+    ansible.builtin.copy:
+      dest: ./course-data.json
+      content: "{{course_yaml | to_nice_json }}"
+  - name: convert uppercase
+    ansible.builtin.debug:
+      msg: "{{ name | upper }}"
