@@ -1,4 +1,4 @@
-- name: usercreation
+- name: usercreationcheck
   hosts: local
   connection: local
   become: yes
@@ -13,4 +13,3 @@
     ansible.builtin.debug:
       msg: "{{user_output}}"
 
-      
