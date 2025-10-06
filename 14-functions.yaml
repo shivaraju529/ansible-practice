@@ -4,6 +4,7 @@
   vars:
    technologies: Devops, Linux, Ansible, shell
    name:  "Sivaraju"
+   ipaddress: "19222.168.0.1"
    #map to list
    tags:
      Application: payment
@@ -46,3 +47,7 @@
   - name: convert uppercase
     ansible.builtin.debug:
       msg: "{{ name | upper }}"
+
+  - name: check IP is valid or not
+    ansible.builtin.debug: 
+      msg: "{{ ipaddress | ansible.utils.ipv4 }}"
