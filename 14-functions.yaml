@@ -1,7 +1,13 @@
 - name: functions
   hosts: local
   connection: local
+  vars:
+   technologies: Devops, Linux, Ansible, shell
   tasks:
   - name: default variable
     ansible.builtin.debug:
       msg: "Hello, {{ name | default('Siva Raju arjun kavya') }}"
+
+  - name: convert string to list
+    ansible.builtin.debug:
+      msg: "technologies are: {{ technologies | split(',') }}"
